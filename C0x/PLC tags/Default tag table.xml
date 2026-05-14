@@ -3331,6 +3331,25 @@
           </MultilingualText>
         </ObjectList>
       </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="20E" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <LogicalAddress>%M650.1</LogicalAddress>
+          <Name>MOTOR_ON</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="20F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="210" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
     </ObjectList>
   </SW.Tags.PlcTagTable>
 </Document>
