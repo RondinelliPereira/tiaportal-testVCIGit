@@ -36,6 +36,9 @@ FUNCTION "Cabinet_Management" : Void
         RUNG wire#w2
             Coil( "MOTOR_ON" )
         END_RUNG
+        RUNG wire#w2
+            Coil( "MOTOR_ON" )
+        END_RUNG
     END_NETWORK
     {
         S7_Language := "LAD";
