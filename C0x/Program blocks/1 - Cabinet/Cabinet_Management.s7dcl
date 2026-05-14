@@ -21,6 +21,14 @@ FUNCTION "Cabinet_Management" : Void
         Summary_fault : Bool;
     END_VAR
 
+    { S7_Language := "LAD" }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "RONDI_PEM_20260514" )
+            Contact( "RONDI_PEM_20260514" )
+            Coil( "tESTE_01" )
+        END_RUNG
+    END_NETWORK
     {
         S7_Language := "LAD";
         S7_NetworkTitle := "MLC_4cd"
@@ -37,10 +45,6 @@ FUNCTION "Cabinet_Management" : Void
         END_RUNG
         RUNG wire#powerrail
             Contact( "M_Rearm_Power_Cabinet" )
-        END_RUNG wire#w1
-        RUNG wire#powerrail
-            Contact( "RONDI_PEM_20260514" )
-            Contact( "RONDI_PEM_20260514" )
         END_RUNG wire#w1
         RUNG wire#powerrail
             Contact( "+C0_S2.001" )
