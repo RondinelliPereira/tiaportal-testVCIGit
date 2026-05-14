@@ -25,9 +25,13 @@ FUNCTION "Cabinet_Management" : Void
     NETWORK
         RUNG wire#powerrail
             Contact( "RONDI_PEM_20260514" )
+            wire#w1
             Contact( "RONDI_PEM_20260514" )
             Coil( "tESTE_01" )
         END_RUNG
+        RUNG wire#powerrail
+            Contact( "tESTE_01" )
+        END_RUNG wire#w1
     END_NETWORK
     {
         S7_Language := "LAD";
