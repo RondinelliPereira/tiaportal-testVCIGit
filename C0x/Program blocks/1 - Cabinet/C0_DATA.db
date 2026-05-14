@@ -1,0 +1,13 @@
+﻿DATA_BLOCK "C0_DATA"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR 
+      C0 { S7_SetPoint := 'False'} : "TypeC0";   // Copy of the current cabinet configuration
+   END_VAR
+
+
+BEGIN
+
+END_DATA_BLOCK
+

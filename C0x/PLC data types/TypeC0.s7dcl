@@ -1,0 +1,24 @@
+﻿TYPE
+    TypeC0 : STRUCT
+        { S7_MLC := "MLC_47T" }
+        Heated_Lines_Enabled : Bool;
+        { S7_MLC := "MLC_Nk" }
+        Insulation_Monitor_Enabled : Bool;
+        { S7_MLC := "MLC_4zb" }
+        Power_L2_Disabled : Bool;
+        { S7_MLC := "MLC_4Ly" }
+        Power_L4_Disabled : Bool;
+        { S7_MLC := "MLC_ep" }
+        Power_L6_Disabled : Bool;
+        { S7_MLC := "MLC_4VW" }
+        Safety_Z2_Disabled : Bool;
+        { S7_MLC := "MLC_tD" }
+        Safety_Z4_Disabled : Bool;
+        { S7_MLC := "MLC_3Fb" }
+        Safety_Z6_Disabled : Bool;
+        { S7_MLC := "MLC_4j4" }
+        Safety_Z8_Disabled : Bool;
+        { S7_MLC := "MLC_3S4" }
+        HWCombiNumber : Int;
+    END_STRUCT;
+END_TYPE

@@ -1,0 +1,87 @@
+﻿{
+    S7_BlockTitle := "MLC_3CE";
+    S7_Optimized := "TRUE";
+    S7_PreferredLanguage := "LAD";
+    S7_Version := "0.1"
+}
+ORGANIZATION_BLOCK "Startup"
+    {
+        S7_Language := "SCL";
+        S7_NetworkComment := "MLC_37Y";
+        S7_NetworkTitle := "MLC_4a8"
+    }
+    NETWORK
+        IF (("C0_ID".CabinetNumber >= 1) AND ("C0_ID".CabinetNumber <= "K_MaxCabinetNumber")) THEN
+            "HWData".CombiNumber := "Cabinets_Config".C0["C0_ID".CabinetNumber].HWCombiNumber;
+            IF (("HWData".CombiNumber >= 1) AND ("HWData".CombiNumber <= "K_MaxHWCombiNumber")) THEN
+                "HWData".CPUET200SP_Config := "HWData".ConfigSlots["HWData".CombiNumber];
+                "C0_DATA".C0 := "Cabinets_Config".C0["C0_ID".CabinetNumber];
+            ELSE
+                "M_HWCombiNumberOutOfRange" := TRUE;
+            END_IF;
+        ELSE
+            "M_CabinetNumberOutOfRange" := TRUE;
+        END_IF;
+            
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkComment := "MLC_3Hk";
+        S7_NetworkTitle := "MLC_4wN"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            I_Contact( "M_CabinetNumberOutOfRange" )
+            I_Contact( "M_HWCombiNumberOutOfRange" )
+            "LCC_ConfigDevice_DB"(
+                hwID :=  ,
+                dataRec := "HWData".CPUET200SP_Config,
+                statusID => "HWData".CPUET200SP_StatusID,
+                status => "HWData".CPUET200SP_Status
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "SCL";
+        S7_NetworkComment := "MLC_vF";
+        S7_NetworkTitle := "MLC_4c6"
+    }
+    NETWORK
+        IF "HWData".CombiNumber > 4 THEN
+            "M_Power_line_3_4_Available" := TRUE;
+            "M_Safety_zone_3_4_Available" := TRUE;
+        END_IF;
+        
+        IF "HWData".CombiNumber > 8 THEN
+            "M_Power_line_5_6_Available" := TRUE;
+            "M_Safety_zone_5_6_Available" := TRUE;
+        END_IF;
+        
+        IF "HWData".CombiNumber > 12 THEN
+            "M_Safety_zone_7_8_Available" := TRUE;
+        END_IF;
+        
+        IF ("HWData".CombiNumber = 2 OR
+            "HWData".CombiNumber = 6 OR
+            "HWData".CombiNumber = 10 OR
+            "HWData".CombiNumber = 14) THEN
+            "M_Wrapping_machine_Enabled" := TRUE;
+        END_IF;
+        
+        IF ("HWData".CombiNumber = 3 OR
+            "HWData".CombiNumber = 7 OR
+            "HWData".CombiNumber = 11 OR
+            "HWData".CombiNumber = 15) THEN
+            "M_Fast_doors_Enabled" := TRUE;
+        END_IF;
+        
+        IF ("HWData".CombiNumber = 4 OR
+            "HWData".CombiNumber = 8 OR
+            "HWData".CombiNumber = 12 OR
+            "HWData".CombiNumber = 16) THEN
+            "M_Wrapping_machine_Enabled" := TRUE;
+            "M_Fast_doors_Enabled" := TRUE;
+        END_IF;
+        
+    END_NETWORK
+END_ORGANIZATION_BLOCK

@@ -1,0 +1,21 @@
+﻿DATA_BLOCK "Cabinets_Config"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR 
+      C0 { S7_SetPoint := 'False'} : Array[1.."K_MaxCabinetNumber"] of "TypeC0";
+   END_VAR
+
+
+BEGIN
+   C0[1].Power_L2_Disabled := false;
+   C0[1].Power_L4_Disabled := false;
+   C0[1].Safety_Z2_Disabled := true;
+   C0[1].Safety_Z4_Disabled := false;
+   C0[1].HWCombiNumber := 1;
+   C0[2].HWCombiNumber := 3;
+   C0[3].HWCombiNumber := 1;
+   C0[4].HWCombiNumber := 1;
+
+END_DATA_BLOCK
+

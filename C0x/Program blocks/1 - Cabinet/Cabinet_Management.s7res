@@ -1,0 +1,49 @@
+﻿MultiLingualTexts:
+  - id: MLC_4cd
+    en-US: Cabinet power control
+  - id: MLC_4Ps
+    en-US: Power lines activation sequence
+  - id: MLC_46U
+    en-US: Power lines deactivation
+  - id: MLC_3qQ
+    en-US: Power lines outputs
+  - id: MLC_3Gk
+    en-US: Phase monitor relay status
+  - id: MLC_aJ
+    en-US: Auxiliary services protection status
+  - id: MLC_58M
+    en-US: 400V power lines protection status
+  - id: MLC_Wk
+    en-US: 400V power lines activated
+  - id: MLC_56n
+    en-US: Emergency stops + Safety lines status
+  - id: MLC_45A
+    en-US: Heated lines protection status
+  - id: MLC_3Ue
+    en-US: Insulation monitor status
+  - id: MLC_4yB
+    en-US: '-P3.701'
+  - id: MLC_44L
+    en-US: Wrapping machine protection status
+  - id: MLC_3UZ
+    en-US: Fast doors protection status
+  - id: MLC_4H3
+    en-US: Cabinet status
+  - id: MLC_Qe
+    en-US: Set cabinet fault
+  - id: MLC_4ar
+    en-US: Reset cabinet fault
+  - id: MLC_4wv
+    en-US: Facility status
+  - id: MLC_4nX
+    en-US: Cabinet + Facility status
+  - id: MLC_48A
+    en-US: Beacon green lamp
+  - id: MLC_4gA
+    en-US: Beacon red lamp
+  - id: MLC_3gp
+    en-US: Beacon buzzer
+  - id: MLC_55W
+    en-US: Cabinet power lines status indicator lamp
+  - id: MLC_35Q
+    en-US: Cabinet emergency stop indicator lamp

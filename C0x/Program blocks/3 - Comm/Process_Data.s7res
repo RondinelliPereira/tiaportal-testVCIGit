@@ -1,0 +1,41 @@
+﻿MultiLingualTexts:
+  - id: MLC_3nm
+    en-US: PLC < - > CPC/CPLC data exchange
+  - id: MLC_43T
+    en-US: |-
+      Inputs:      Galileo -> PLC
+      Outputs:  PLC -> Galileo
+  - id: MLC_3Pv
+    en-US: Input Byte 0           Rearm power C0 cabinet + Facility status
+  - id: MLC_4t2
+    en-US: Input Byte 1           External machine interface / general purpose inputs
+  - id: MLC_4cR
+    en-US: Input Byte 2           Wrapping machine / Fast door control
+  - id: MLC_3yF
+    en-US: Input Byte 3           Reset of safety zones
+  - id: MLC_ZW
+    en-US: Output Byte 0        A0.101 DI-module
+  - id: MLC_3Yw
+    en-US: Output Byte 1        A0.102 DI-module
+  - id: MLC_4Mx
+    en-US: Output Byte 2        A0.103 DI-module
+  - id: MLC_uC
+    en-US: Output Byte 3        A0.104 DI-module
+  - id: MLC_3rc
+    en-US: Output Byte 4        A0.105 DI-module
+  - id: MLC_45Y
+    en-US: Output Byte 5        A0.106 DI-module
+  - id: MLC_vh
+    en-US: Output Byte 6        A0.107 DI-module
+  - id: MLC_4YN
+    en-US: Output Byte 7        A0.108 DI-module
+  - id: MLC_3sn
+    en-US: Output Byte 8        Power lines & safety zones disabled
+  - id: MLC_4RL
+    en-US: Output Byte 9        Insulation monitor + Heated lines + Cabinet emergency stop status
+  - id: MLC_4eL
+    en-US: + Cabinet fault feedback
+  - id: MLC_ue
+    en-US: Output Byte 10        Emergency zones status
+  - id: MLC_549
+    en-US: Output Byte 11        PLC hardware combination number

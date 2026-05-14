@@ -1,0 +1,348 @@
+﻿{
+    S7_BlockComment := "MLC_43T";
+    S7_BlockNumber := "4";
+    S7_BlockTitle := "MLC_3nm";
+    S7_Optimized := "TRUE";
+    S7_PreferredLanguage := "LAD";
+    S7_Version := "0.1"
+}
+FUNCTION "Process_Data" : Void
+    VAR_TEMP
+        input : Byte;
+    END_VAR
+
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3Pv"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "IB_Byte0".%X0 )
+            Coil( "M_Rearm_Power_Cabinet" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte0".%X7 )
+            Coil( "M_Facility_OK" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4t2"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X0 )
+            Coil( "+C0_K1.007" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X1 )
+            Coil( "+C0_K1.008" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X2 )
+            Coil( "+C0_K1.009" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X3 )
+            Coil( "+C0_K1.010" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X4 )
+            Coil( "+C0_Spare_152.4" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X5 )
+            Coil( "+C0_Spare_152.5" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X6 )
+            Coil( "+C0_Spare_152.6" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte1".%X7 )
+            Coil( "+C0_Spare_152.7" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4cR"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X0 )
+            Coil( "+C0_K1.020" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X1 )
+            Coil( "+C0_Spare_154.1" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X2 )
+            Coil( "+C0_K1.030" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X3 )
+            Coil( "+C0_K1.031" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X4 )
+            Coil( "+C0_K1.032" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X5 )
+            Coil( "+C0_K1.033" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X6 )
+            Coil( "+C0_K1.034" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte2".%X7 )
+            Coil( "+C0_K1.035" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3yF"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X0 )
+            Coil( "M_Reset_safety_Z1" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X1 )
+            Coil( "M_Reset_safety_Z2" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X2 )
+            Coil( "M_Reset_safety_Z3" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X3 )
+            Coil( "M_Reset_safety_Z4" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X4 )
+            Coil( "M_Reset_safety_Z5" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X5 )
+            Coil( "M_Reset_safety_Z6" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X6 )
+            Coil( "M_Reset_safety_Z7" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "IB_Byte3".%X7 )
+            Coil( "M_Reset_safety_Z8" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_ZW"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.101",
+                out1 => "OB_Byte0"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3Yw"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.102",
+                out1 => "OB_Byte1"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4Mx"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.103",
+                out1 => "OB_Byte2"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_uC"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.104",
+                out1 => "OB_Byte3"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3rc"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.105",
+                out1 => "OB_Byte4"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_45Y"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.106",
+                out1 => "OB_Byte5"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_vh"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.107",
+                out1 => "OB_Byte6"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4YN"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Move(
+                in := "+C0_A0.108",
+                out1 => "OB_Byte7"
+            )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3sn"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Power_L2_Disabled )
+            Coil( "OB_Byte8".%X0 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Power_L4_Disabled )
+            Coil( "OB_Byte8".%X1 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Power_L6_Disabled )
+            Coil( "OB_Byte8".%X2 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Safety_Z2_Disabled )
+            Coil( "OB_Byte8".%X3 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Safety_Z4_Disabled )
+            Coil( "OB_Byte8".%X4 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Safety_Z6_Disabled )
+            Coil( "OB_Byte8".%X5 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Safety_Z8_Disabled )
+            Coil( "OB_Byte8".%X6 )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkComment := "MLC_4eL";
+        S7_NetworkTitle := "MLC_4RL"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Insulation_Monitor_Enabled )
+            Coil( "OB_Byte9".%X0 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "C0_DATA".C0.Heated_Lines_Enabled )
+            Coil( "OB_Byte9".%X1 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Cabinet_fault" )
+            Coil( "OB_Byte9".%X6 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "+C0_S1.001_1" )
+            Coil( "OB_Byte9".%X7 )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_ue"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z1 )
+            Coil( "OB_Byte10".%X0 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z2 )
+            Coil( "OB_Byte10".%X1 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z3 )
+            Coil( "OB_Byte10".%X2 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z4 )
+            Coil( "OB_Byte10".%X3 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z5 )
+            Coil( "OB_Byte10".%X4 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z6 )
+            Coil( "OB_Byte10".%X5 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z7 )
+            Coil( "OB_Byte10".%X6 )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "Emergencies_Block_DB".Output_Z8 )
+            Coil( "OB_Byte10".%X7 )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_549"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            {
+                S7_Templates := "[SrcType := Int, DestType := USInt]"
+            }
+            Convert(
+                in := "HWData".CombiNumber,
+                out => "OB_Byte11"
+            )
+        END_RUNG
+    END_NETWORK
+END_FUNCTION

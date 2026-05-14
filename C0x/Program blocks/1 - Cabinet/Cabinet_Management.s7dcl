@@ -1,0 +1,516 @@
+﻿{
+    S7_Optimized := "TRUE";
+    S7_PreferredLanguage := "LAD";
+    S7_Version := "0.1"
+}
+FUNCTION "Cabinet_Management" : Void
+    VAR_TEMP
+        Phase_monitor_OK : Bool;
+        Auxiliary_sevices_OK : Bool;
+        "400V_protections_OK" : Bool;
+        "400V_power_lines_activated" : Bool;
+        Aux_emergencies : Bool;
+        Emergencies_OK : Bool;
+        Aux_cabinet_OK : Bool;
+        Cabinet_OK : Bool;
+        Heater_OK : Bool;
+        Insulation_Monitor_OK : Bool;
+        Power_wrapping_machine_OK : Bool;
+        Power_fast_doors_OK : Bool;
+        Facility_fault : Bool;
+        Summary_fault : Bool;
+    END_VAR
+
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4cd"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_S2.101" )
+            wire#w1
+            Contact( "+C0_K0.001" )
+            S_SR(
+                operand := "M_Power_cabinet",
+                r1 := wire#w2
+            )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Rearm_Power_Cabinet" )
+        END_RUNG wire#w1
+        RUNG wire#powerrail
+            Contact( "RONDI_PEM_20260514" )
+            Contact( "RONDI_PEM_20260514" )
+        END_RUNG wire#w1
+        RUNG wire#powerrail
+            Contact( "+C0_S2.001" )
+        END_RUNG wire#w2
+        RUNG wire#powerrail
+            I_Contact( "+C0_K0.001" )
+        END_RUNG wire#w2
+        RUNG wire#powerrail
+            I_Contact( "+C0_PE/OK" )
+            Contact( "C0_DATA".C0.Insulation_Monitor_Enabled )
+        END_RUNG wire#w2
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4Ps"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "M_Power_cabinet" )
+            wire#w1
+            Contact( "Clock_1Hz" )
+            S_Coil( "M_Power_L1" )
+        END_RUNG
+        RUNG wire#w1
+            I_Contact( "Clock_1Hz" )
+            Contact( "M_Power_L1" )
+            S_Coil( "M_Power_L2" )
+        END_RUNG
+        RUNG wire#w1
+            Contact( "Clock_1Hz" )
+            Contact( "M_Power_L2" )
+            S_Coil( "M_Power_L3" )
+        END_RUNG
+        RUNG wire#w1
+            I_Contact( "Clock_1Hz" )
+            Contact( "M_Power_L3" )
+            S_Coil( "M_Power_L4" )
+        END_RUNG
+        RUNG wire#w1
+            Contact( "Clock_1Hz" )
+            Contact( "M_Power_L4" )
+            S_Coil( "M_Power_L5" )
+        END_RUNG
+        RUNG wire#w1
+            I_Contact( "Clock_1Hz" )
+            Contact( "M_Power_L5" )
+            S_Coil( "M_Power_L6" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_46U"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            I_Contact( "M_Power_cabinet" )
+            wire#w1
+            R_Coil( "M_Power_L1" )
+        END_RUNG
+        RUNG wire#w1
+            R_Coil( "M_Power_L2" )
+        END_RUNG
+        RUNG wire#w1
+            R_Coil( "M_Power_L3" )
+        END_RUNG
+        RUNG wire#w1
+            R_Coil( "M_Power_L4" )
+        END_RUNG
+        RUNG wire#w1
+            R_Coil( "M_Power_L5" )
+        END_RUNG
+        RUNG wire#w1
+            R_Coil( "M_Power_L6" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3qQ"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "M_Power_L1" )
+            Coil( "+C0_K1.001" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Power_L2" )
+            I_Contact( "C0_DATA".C0.Power_L2_Disabled )
+            Coil( "+C0_K1.002" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Power_L3" )
+            Contact( "M_Power_line_3_4_Available" )
+            Coil( "+C0_K1.003" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Power_L4" )
+            Contact( "M_Power_line_3_4_Available" )
+            I_Contact( "C0_DATA".C0.Power_L4_Disabled )
+            Coil( "+C0_K1.004" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Power_L5" )
+            Contact( "M_Power_line_5_6_Available" )
+            Coil( "+C0_K1.005" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Power_L6" )
+            Contact( "M_Power_line_5_6_Available" )
+            I_Contact( "C0_DATA".C0.Power_L6_Disabled )
+            Coil( "+C0_K1.006" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3Gk"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_K0.001" )
+            Coil( #Phase_monitor_OK )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_aJ"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_AUX/OK" )
+            Coil( #Auxiliary_sevices_OK )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_58M"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_F2.101" )
+            wire#w1
+            Contact( "+C0_F2.102" )
+            wire#w2
+            Contact( "+C0_F2.103" )
+            wire#w3
+            Contact( "+C0_F2.104" )
+            wire#w4
+            Contact( "+C0_F2.105" )
+            wire#w5
+            Contact( "+C0_F2.106" )
+            wire#w6
+            Coil( #"400V_protections_OK" )
+        END_RUNG
+        RUNG wire#w1
+            Contact( "C0_DATA".C0.Power_L2_Disabled )
+        END_RUNG wire#w2
+        RUNG wire#w3
+            Contact( "C0_DATA".C0.Power_L4_Disabled )
+        END_RUNG wire#w4
+        RUNG wire#w2
+            I_Contact( "M_Power_line_3_4_Available" )
+        END_RUNG wire#w4
+        RUNG wire#w5
+            Contact( "C0_DATA".C0.Power_L6_Disabled )
+        END_RUNG wire#w6
+        RUNG wire#w4
+            I_Contact( "M_Power_line_5_6_Available" )
+        END_RUNG wire#w6
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_Wk"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_Q1.001" )
+            wire#w1
+            Contact( "+C0_Q1.002" )
+            wire#w2
+            Contact( "+C0_Q1.003" )
+            wire#w3
+            Contact( "+C0_Q1.004" )
+            wire#w4
+            Contact( "+C0_Q1.005" )
+            wire#w5
+            Contact( "+C0_Q1.006" )
+            wire#w6
+            Coil( #"400V_power_lines_activated" )
+        END_RUNG
+        RUNG wire#w1
+            Contact( "C0_DATA".C0.Power_L2_Disabled )
+        END_RUNG wire#w2
+        RUNG wire#w3
+            Contact( "C0_DATA".C0.Power_L4_Disabled )
+        END_RUNG wire#w4
+        RUNG wire#w2
+            I_Contact( "M_Power_line_3_4_Available" )
+        END_RUNG wire#w4
+        RUNG wire#w5
+            Contact( "C0_DATA".C0.Power_L6_Disabled )
+        END_RUNG wire#w6
+        RUNG wire#w4
+            I_Contact( "M_Power_line_5_6_Available" )
+        END_RUNG wire#w6
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_56n"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_S1.001_1" )
+            Contact( "+C0_1SE1" )
+            Contact( "+C0_1SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z1 )
+            wire#w1
+            Contact( "+C0_2SE1" )
+            Contact( "+C0_2SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z2 )
+            wire#w2
+            Contact( "+C0_3SE1" )
+            Contact( "+C0_3SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z3 )
+            wire#w3
+            Contact( "+C0_4SE1" )
+            Contact( "+C0_4SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z4 )
+            wire#w4
+            Coil( #Aux_emergencies )
+        END_RUNG
+        RUNG wire#w1
+            Contact( "C0_DATA".C0.Safety_Z2_Disabled )
+        END_RUNG wire#w2
+        RUNG wire#w3
+            Contact( "C0_DATA".C0.Safety_Z4_Disabled )
+        END_RUNG wire#w4
+        RUNG wire#w2
+            I_Contact( "M_Safety_zone_3_4_Available" )
+        END_RUNG wire#w4
+        RUNG wire#powerrail
+            Contact( #Aux_emergencies )
+            wire#w5
+            Contact( "+C0_5SE1" )
+            Contact( "+C0_5SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z5 )
+            wire#w6
+            Contact( "+C0_6SE1" )
+            Contact( "+C0_6SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z6 )
+            wire#w7
+            Contact( "+C0_7SE1" )
+            Contact( "+C0_7SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z7 )
+            wire#w8
+            Contact( "+C0_8SE1" )
+            Contact( "+C0_8SE2" )
+            Contact( "Emergencies_Block_DB".Output_Z8 )
+            wire#w9
+            Coil( #Emergencies_OK )
+        END_RUNG
+        RUNG wire#w6
+            Contact( "C0_DATA".C0.Safety_Z6_Disabled )
+        END_RUNG wire#w7
+        RUNG wire#w5
+            I_Contact( "M_Safety_zone_5_6_Available" )
+        END_RUNG wire#w7
+        RUNG wire#w8
+            Contact( "C0_DATA".C0.Safety_Z8_Disabled )
+        END_RUNG wire#w9
+        RUNG wire#w7
+            I_Contact( "M_Safety_zone_7_8_Available" )
+        END_RUNG wire#w9
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_45A"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_CAL/OK" )
+            wire#w1
+            Coil( #Heater_OK )
+        END_RUNG
+        RUNG wire#powerrail
+            I_Contact( "C0_DATA".C0.Heated_Lines_Enabled )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkComment := "MLC_4yB";
+        S7_NetworkTitle := "MLC_3Ue"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_PE/OK" )
+            wire#w1
+            Coil( #Insulation_Monitor_OK )
+        END_RUNG
+        RUNG wire#powerrail
+            I_Contact( "C0_DATA".C0.Insulation_Monitor_Enabled )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_44L"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_F0.199 -F2.199" )
+            wire#w1
+            Coil( #Power_wrapping_machine_OK )
+        END_RUNG
+        RUNG wire#powerrail
+            I_Contact( "M_Wrapping_machine_Enabled" )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3UZ"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_F0.190+" )
+            wire#w1
+            Coil( #Power_fast_doors_OK )
+        END_RUNG
+        RUNG wire#powerrail
+            I_Contact( "M_Fast_doors_Enabled" )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4H3"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( #Phase_monitor_OK )
+            Contact( #Auxiliary_sevices_OK )
+            Contact( #"400V_protections_OK" )
+            Contact( #"400V_power_lines_activated" )
+            Contact( #Emergencies_OK )
+            Coil( #Aux_cabinet_OK )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( #Aux_cabinet_OK )
+            Contact( #Heater_OK )
+            Contact( #Insulation_Monitor_OK )
+            Contact( #Power_wrapping_machine_OK )
+            Contact( #Power_fast_doors_OK )
+            Coil( #Cabinet_OK )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_Qe"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            I_Contact( #Cabinet_OK )
+            S_Coil( "M_Cabinet_fault" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4ar"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( #Cabinet_OK )
+            R_Coil( "M_Cabinet_fault" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4wv"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            I_Contact( "M_Facility_OK" )
+            Coil( #Facility_fault )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4nX"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "M_Cabinet_fault" )
+            wire#w1
+            Coil( #Summary_fault )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( #Facility_fault )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_48A"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( #Summary_fault )
+            wire#w1
+            Coil( "+C0_Beacon_Green" )
+        END_RUNG
+        RUNG wire#powerrail
+            I_Contact( #Summary_fault )
+            Contact( "Clock_0.5Hz" )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4gA"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            I_Contact( #Summary_fault )
+            wire#w1
+            Coil( "+C0_Beacon_Red" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( #Summary_fault )
+            Contact( "Clock_0.5Hz" )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3gp"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( #Cabinet_OK )
+            Contact( "M_Facility_OK" )
+            N_Trig( "M_NF_Cabinet_fault" )
+            S_SR(
+                operand := "M_Buzzer",
+                r1 := wire#w1
+            )
+            Coil( "+C0_Buzzer" )
+        END_RUNG
+        RUNG wire#powerrail
+            Contact( "M_Buzzer" )
+            { S7_Templates := "time_type := Time" }
+            "Buzzer timer".TON(
+                pt := T#4S,
+                et =>  
+            )
+        END_RUNG wire#w1
+        RUNG wire#powerrail
+            Contact( "+C0_S2.002" )
+        END_RUNG wire#w1
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_55W"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( #"400V_power_lines_activated" )
+            Coil( "+C0_RE" )
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_35Q"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            Contact( "+C0_S1.001_1" )
+            Coil( "+C0_PEM" )
+        END_RUNG
+    END_NETWORK
+END_FUNCTION

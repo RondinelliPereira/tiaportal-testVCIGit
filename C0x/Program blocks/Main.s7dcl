@@ -1,0 +1,26 @@
+﻿{
+    S7_BlockTitle := "MLC_3uN";
+    S7_Optimized := "TRUE";
+    S7_PreferredLanguage := "LAD";
+    S7_Version := "0.1"
+}
+ORGANIZATION_BLOCK "Main"
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_3Kk"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            "Cabinet_Management"()
+        END_RUNG
+    END_NETWORK
+    {
+        S7_Language := "LAD";
+        S7_NetworkTitle := "MLC_4Ad"
+    }
+    NETWORK
+        RUNG wire#powerrail
+            "Process_Data"()
+        END_RUNG
+    END_NETWORK
+END_ORGANIZATION_BLOCK

@@ -1,0 +1,21 @@
+﻿MultiLingualTexts:
+  - id: MLC_3CE
+    en-US: '"Complete Restart"'
+  - id: MLC_4a8
+    en-US: Load the selected hardware combination
+  - id: MLC_37Y
+    en-US: The configuration of the slots is loaded according to the selected hardware combination
+  - id: MLC_4wN
+    en-US: Hardware configuration
+  - id: MLC_3Hk
+    en-US: |-
+      For more details refer to:
+      - Configuring standard machines in TIA Portal (configuration control) Application example.
+      - Library for Configuration Control (LCC).
+  - id: MLC_4c6
+    en-US: Configuration of the +C0 cabinet functionalities according to the configured hardware.
+  - id: MLC_vF
+    en-US: |-
+      For all hardware combinations:
+        - Power lines L1/L2 are always available.
+        - Safety zones Z1/Z2 are always available.

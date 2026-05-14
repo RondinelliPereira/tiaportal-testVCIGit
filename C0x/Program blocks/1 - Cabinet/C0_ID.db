@@ -1,0 +1,14 @@
+﻿DATA_BLOCK "C0_ID"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR 
+      CabinetNumber : Int;   // Current C0 cabinet to be programmed
+   END_VAR
+
+
+BEGIN
+   CabinetNumber := 1;
+
+END_DATA_BLOCK
+

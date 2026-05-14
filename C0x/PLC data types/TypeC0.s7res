@@ -1,0 +1,21 @@
+﻿MultiLingualTexts:
+  - id: MLC_47T
+    en-US: true = Heated line/s are enabled
+  - id: MLC_Nk
+    en-US: true = Insulation monitor is enabled
+  - id: MLC_4zb
+    en-US: true = Power L2 is disabled
+  - id: MLC_4Ly
+    en-US: true = Power L4 is disabled
+  - id: MLC_ep
+    en-US: true = Power L6 is disabled
+  - id: MLC_4VW
+    en-US: true = Safety Z2 is disabled
+  - id: MLC_tD
+    en-US: true = Safety Z4 is disabled
+  - id: MLC_3Fb
+    en-US: true = Safety Z6 is disabled
+  - id: MLC_4j4
+    en-US: true = Safety Z8 is disabled
+  - id: MLC_3S4
+    en-US: PLC hardware combination number
