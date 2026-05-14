@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V21" />
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <Interface>
+        <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+          <Section Name="Static">
+            <Member Name="C0" Datatype="Array[1..&quot;K_MaxCabinetNumber&quot;] of &quot;TypeC0&quot;">
+              <Sections>
+                <Section Name="None">
+                  <Member Name="Power_L2_Disabled" Datatype="Bool">
+                    <Subelement Path="1">
+                      <StartValue>false</StartValue>
+                    </Subelement>
+                  </Member>
+                  <Member Name="Power_L4_Disabled" Datatype="Bool">
+                    <Subelement Path="1">
+                      <StartValue>false</StartValue>
+                    </Subelement>
+                  </Member>
+                  <Member Name="Safety_Z2_Disabled" Datatype="Bool">
+                    <Subelement Path="1">
+                      <StartValue>true</StartValue>
+                    </Subelement>
+                  </Member>
+                  <Member Name="Safety_Z4_Disabled" Datatype="Bool">
+                    <Subelement Path="1">
+                      <StartValue>false</StartValue>
+                    </Subelement>
+                  </Member>
+                  <Member Name="HWCombiNumber" Datatype="Int">
+                    <Subelement Path="1">
+                      <StartValue>1</StartValue>
+                    </Subelement>
+                    <Subelement Path="2">
+                      <StartValue>3</StartValue>
+                    </Subelement>
+                    <Subelement Path="3">
+                      <StartValue>1</StartValue>
+                    </Subelement>
+                    <Subelement Path="4">
+                      <StartValue>1</StartValue>
+                    </Subelement>
+                  </Member>
+                </Section>
+              </Sections>
+            </Member>
+          </Section>
+        </Sections>
+      </Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>Cabinets_Config</Name>
+      <Namespace />
+      <Number>8</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

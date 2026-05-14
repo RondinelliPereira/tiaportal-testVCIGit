@@ -1,0 +1,996 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V21" />
+  <SW.Blocks.OB ID="0">
+    <AttributeList>
+      <Interface>
+        <Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+          <Section Name="Input">
+            <Member Name="LostRetentive" Datatype="Bool" Informative="true">
+              <Comment>
+                <MultiLanguageText Lang="en-US">True if retentive data are lost</MultiLanguageText>
+              </Comment>
+            </Member>
+            <Member Name="LostRTC" Datatype="Bool" Informative="true">
+              <Comment>
+                <MultiLanguageText Lang="en-US">True if date and time are lost</MultiLanguageText>
+              </Comment>
+            </Member>
+          </Section>
+          <Section Name="Temp" />
+          <Section Name="Constant" />
+        </Sections>
+      </Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>Startup</Name>
+      <Namespace />
+      <Number>100</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SecondaryType>Startup</SecondaryType>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v4">
+              <Token Text="IF" UId="21" />
+              <Blank UId="22" />
+              <Token Text="(" UId="23" />
+              <Token Text="(" UId="24" />
+              <Access Scope="GlobalVariable" UId="25">
+                <Symbol UId="26">
+                  <Component Name="C0_ID" UId="27">
+                    <BooleanAttribute Name="HasQuotes" UId="28">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="29" />
+                  <Component Name="CabinetNumber" UId="30" />
+                </Symbol>
+              </Access>
+              <Blank UId="31" />
+              <Token Text="&gt;=" UId="32" />
+              <Blank UId="33" />
+              <Access Scope="LiteralConstant" UId="34">
+                <Constant UId="35">
+                  <ConstantValue UId="37">1</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=")" UId="38" />
+              <Blank UId="39" />
+              <Token Text="AND" UId="40" />
+              <Blank UId="41" />
+              <Token Text="(" UId="42" />
+              <Access Scope="GlobalVariable" UId="43">
+                <Symbol UId="44">
+                  <Component Name="C0_ID" UId="45">
+                    <BooleanAttribute Name="HasQuotes" UId="46">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="47" />
+                  <Component Name="CabinetNumber" UId="48" />
+                </Symbol>
+              </Access>
+              <Blank UId="49" />
+              <Token Text="&lt;=" UId="50" />
+              <Blank UId="51" />
+              <Access Scope="GlobalConstant" UId="52">
+                <Constant Name="K_MaxCabinetNumber" UId="53" />
+              </Access>
+              <Token Text=")" UId="56" />
+              <Token Text=")" UId="57" />
+              <Blank UId="58" />
+              <Token Text="THEN" UId="59" />
+              <NewLine UId="60" />
+              <Blank Num="4" UId="61" />
+              <Access Scope="GlobalVariable" UId="62">
+                <Symbol UId="63">
+                  <Component Name="HWData" UId="64">
+                    <BooleanAttribute Name="HasQuotes" UId="65">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="66" />
+                  <Component Name="CombiNumber" UId="67" />
+                </Symbol>
+              </Access>
+              <Blank UId="68" />
+              <Token Text=":=" UId="69" />
+              <Blank UId="70" />
+              <Access Scope="GlobalVariable" UId="71">
+                <Symbol UId="72">
+                  <Component Name="Cabinets_Config" UId="73">
+                    <BooleanAttribute Name="HasQuotes" UId="74">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="75" />
+                  <Component Name="C0" UId="76">
+                    <Token Text="[" UId="77" />
+                    <Access Scope="GlobalVariable" UId="78">
+                      <Symbol UId="79">
+                        <Component Name="C0_ID" UId="80">
+                          <BooleanAttribute Name="HasQuotes" UId="81">true</BooleanAttribute>
+                        </Component>
+                        <Token Text="." UId="82" />
+                        <Component Name="CabinetNumber" UId="83" />
+                      </Symbol>
+                    </Access>
+                    <Token Text="]" UId="84" />
+                  </Component>
+                  <Token Text="." UId="85" />
+                  <Component Name="HWCombiNumber" UId="86" />
+                </Symbol>
+              </Access>
+              <Token Text=";" UId="87" />
+              <NewLine UId="88" />
+              <Blank Num="4" UId="89" />
+              <Token Text="IF" UId="90" />
+              <Blank UId="91" />
+              <Token Text="(" UId="92" />
+              <Token Text="(" UId="93" />
+              <Access Scope="GlobalVariable" UId="94">
+                <Symbol UId="95">
+                  <Component Name="HWData" UId="96">
+                    <BooleanAttribute Name="HasQuotes" UId="97">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="98" />
+                  <Component Name="CombiNumber" UId="99" />
+                </Symbol>
+              </Access>
+              <Blank UId="100" />
+              <Token Text="&gt;=" UId="101" />
+              <Blank UId="102" />
+              <Access Scope="LiteralConstant" UId="103">
+                <Constant UId="104">
+                  <ConstantValue UId="106">1</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=")" UId="107" />
+              <Blank UId="108" />
+              <Token Text="AND" UId="109" />
+              <Blank UId="110" />
+              <Token Text="(" UId="111" />
+              <Access Scope="GlobalVariable" UId="112">
+                <Symbol UId="113">
+                  <Component Name="HWData" UId="114">
+                    <BooleanAttribute Name="HasQuotes" UId="115">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="116" />
+                  <Component Name="CombiNumber" UId="117" />
+                </Symbol>
+              </Access>
+              <Blank UId="118" />
+              <Token Text="&lt;=" UId="119" />
+              <Blank UId="120" />
+              <Access Scope="GlobalConstant" UId="121">
+                <Constant Name="K_MaxHWCombiNumber" UId="122" />
+              </Access>
+              <Token Text=")" UId="125" />
+              <Token Text=")" UId="126" />
+              <Blank UId="127" />
+              <Token Text="THEN" UId="128" />
+              <NewLine UId="129" />
+              <Blank Num="8" UId="130" />
+              <Access Scope="GlobalVariable" UId="131">
+                <Symbol UId="132">
+                  <Component Name="HWData" UId="133">
+                    <BooleanAttribute Name="HasQuotes" UId="134">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="135" />
+                  <Component Name="CPUET200SP_Config" UId="136" />
+                </Symbol>
+              </Access>
+              <Blank UId="137" />
+              <Token Text=":=" UId="138" />
+              <Blank UId="139" />
+              <Access Scope="GlobalVariable" UId="140">
+                <Symbol UId="141">
+                  <Component Name="HWData" UId="142">
+                    <BooleanAttribute Name="HasQuotes" UId="143">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="144" />
+                  <Component Name="ConfigSlots" UId="145">
+                    <Token Text="[" UId="146" />
+                    <Access Scope="GlobalVariable" UId="147">
+                      <Symbol UId="148">
+                        <Component Name="HWData" UId="149">
+                          <BooleanAttribute Name="HasQuotes" UId="150">true</BooleanAttribute>
+                        </Component>
+                        <Token Text="." UId="151" />
+                        <Component Name="CombiNumber" UId="152" />
+                      </Symbol>
+                    </Access>
+                    <Token Text="]" UId="153" />
+                  </Component>
+                </Symbol>
+              </Access>
+              <Token Text=";" UId="154" />
+              <NewLine UId="155" />
+              <Blank Num="8" UId="156" />
+              <Access Scope="GlobalVariable" UId="157">
+                <Symbol UId="158">
+                  <Component Name="C0_DATA" UId="159">
+                    <BooleanAttribute Name="HasQuotes" UId="160">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="161" />
+                  <Component Name="C0" UId="162" />
+                </Symbol>
+              </Access>
+              <Blank UId="163" />
+              <Token Text=":=" UId="164" />
+              <Blank UId="165" />
+              <Access Scope="GlobalVariable" UId="166">
+                <Symbol UId="167">
+                  <Component Name="Cabinets_Config" UId="168">
+                    <BooleanAttribute Name="HasQuotes" UId="169">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="170" />
+                  <Component Name="C0" UId="171">
+                    <Token Text="[" UId="172" />
+                    <Access Scope="GlobalVariable" UId="173">
+                      <Symbol UId="174">
+                        <Component Name="C0_ID" UId="175">
+                          <BooleanAttribute Name="HasQuotes" UId="176">true</BooleanAttribute>
+                        </Component>
+                        <Token Text="." UId="177" />
+                        <Component Name="CabinetNumber" UId="178" />
+                      </Symbol>
+                    </Access>
+                    <Token Text="]" UId="179" />
+                  </Component>
+                </Symbol>
+              </Access>
+              <Token Text=";" UId="180" />
+              <NewLine UId="181" />
+              <Blank Num="4" UId="182" />
+              <Token Text="ELSE" UId="183" />
+              <NewLine UId="184" />
+              <Blank Num="8" UId="185" />
+              <Access Scope="GlobalVariable" UId="186">
+                <Symbol UId="187">
+                  <Component Name="M_HWCombiNumberOutOfRange" UId="188">
+                    <BooleanAttribute Name="HasQuotes" UId="189">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="190" />
+              <Token Text=":=" UId="191" />
+              <Blank UId="192" />
+              <Access Scope="LiteralConstant" UId="193">
+                <Constant UId="194">
+                  <ConstantValue UId="196">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="197" />
+              <NewLine UId="198" />
+              <Blank Num="4" UId="199" />
+              <Token Text="END_IF" UId="200" />
+              <Token Text=";" UId="201" />
+              <NewLine UId="202" />
+              <Token Text="ELSE" UId="203" />
+              <NewLine UId="204" />
+              <Blank Num="4" UId="205" />
+              <Access Scope="GlobalVariable" UId="206">
+                <Symbol UId="207">
+                  <Component Name="M_CabinetNumberOutOfRange" UId="208">
+                    <BooleanAttribute Name="HasQuotes" UId="209">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="210" />
+              <Token Text=":=" UId="211" />
+              <Blank UId="212" />
+              <Access Scope="LiteralConstant" UId="213">
+                <Constant UId="214">
+                  <ConstantValue UId="216">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="217" />
+              <NewLine UId="218" />
+              <Token Text="END_IF" UId="219" />
+              <Token Text=";" UId="220" />
+              <NewLine UId="221" />
+              <Blank Num="4" UId="222" />
+            </StructuredText>
+          </NetworkSource>
+          <ProgrammingLanguage>SCL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>The configuration of the slots is loaded according to the selected hardware combination</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Load the selected hardware combination</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+              <Parts>
+                <Access Scope="GlobalVariable" UId="21">
+                  <Symbol>
+                    <Component Name="M_CabinetNumberOutOfRange" />
+                  </Symbol>
+                </Access>
+                <Access Scope="GlobalVariable" UId="22">
+                  <Symbol>
+                    <Component Name="M_HWCombiNumberOutOfRange" />
+                  </Symbol>
+                </Access>
+                <Access Scope="GlobalVariable" UId="23">
+                  <Symbol>
+                    <Component Name="HWData" />
+                    <Component Name="CPUET200SP_Config" />
+                  </Symbol>
+                </Access>
+                <Access Scope="GlobalVariable" UId="24">
+                  <Symbol>
+                    <Component Name="HWData" />
+                    <Component Name="CPUET200SP_StatusID" />
+                  </Symbol>
+                </Access>
+                <Access Scope="GlobalVariable" UId="25">
+                  <Symbol>
+                    <Component Name="HWData" />
+                    <Component Name="CPUET200SP_Status" />
+                  </Symbol>
+                </Access>
+                <Part Name="Contact" UId="26">
+                  <Negated Name="operand" />
+                </Part>
+                <Part Name="Contact" UId="27">
+                  <Negated Name="operand" />
+                </Part>
+                <Call UId="28">
+                  <CallInfo Name="LCC_ConfigDevice" BlockType="FB">
+                    <Instance Scope="GlobalVariable" UId="29">
+                      <Component Name="LCC_ConfigDevice_DB" />
+                    </Instance>
+                    <Parameter Name="hwID" Section="Input" Type="HW_IO" />
+                    <Parameter Name="statusID" Section="Output" Type="USInt" />
+                    <Parameter Name="status" Section="Output" Type="DWord" />
+                    <Parameter Name="dataRec" Section="InOut" Type="Variant" />
+                  </CallInfo>
+                </Call>
+              </Parts>
+              <Wires>
+                <Wire UId="31">
+                  <Powerrail />
+                  <NameCon UId="26" Name="in" />
+                </Wire>
+                <Wire UId="32">
+                  <IdentCon UId="21" />
+                  <NameCon UId="26" Name="operand" />
+                </Wire>
+                <Wire UId="33">
+                  <NameCon UId="26" Name="out" />
+                  <NameCon UId="27" Name="in" />
+                </Wire>
+                <Wire UId="34">
+                  <IdentCon UId="22" />
+                  <NameCon UId="27" Name="operand" />
+                </Wire>
+                <Wire UId="35">
+                  <NameCon UId="27" Name="out" />
+                  <NameCon UId="28" Name="en" />
+                </Wire>
+                <Wire UId="36">
+                  <OpenCon UId="30" />
+                  <NameCon UId="28" Name="hwID" />
+                </Wire>
+                <Wire UId="37">
+                  <IdentCon UId="23" />
+                  <NameCon UId="28" Name="dataRec" />
+                </Wire>
+                <Wire UId="38">
+                  <NameCon UId="28" Name="statusID" />
+                  <IdentCon UId="24" />
+                </Wire>
+                <Wire UId="39">
+                  <NameCon UId="28" Name="status" />
+                  <IdentCon UId="25" />
+                </Wire>
+              </Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>For more details refer to:
+- Configuring standard machines in TIA Portal (configuration control) Application example.
+- Library for Configuration Control (LCC).</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Hardware configuration</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="D" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v4">
+              <Token Text="IF" UId="21" />
+              <Blank UId="22" />
+              <Access Scope="GlobalVariable" UId="23">
+                <Symbol UId="24">
+                  <Component Name="HWData" UId="25">
+                    <BooleanAttribute Name="HasQuotes" UId="26">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="27" />
+                  <Component Name="CombiNumber" UId="28" />
+                </Symbol>
+              </Access>
+              <Blank UId="29" />
+              <Token Text="&gt;" UId="30" />
+              <Blank UId="31" />
+              <Access Scope="LiteralConstant" UId="32">
+                <Constant UId="33">
+                  <ConstantValue UId="35">4</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="36" />
+              <Token Text="THEN" UId="37" />
+              <NewLine UId="38" />
+              <Blank Num="4" UId="39" />
+              <Access Scope="GlobalVariable" UId="40">
+                <Symbol UId="41">
+                  <Component Name="M_Power_line_3_4_Available" UId="42">
+                    <BooleanAttribute Name="HasQuotes" UId="43">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="44" />
+              <Token Text=":=" UId="45" />
+              <Blank UId="46" />
+              <Access Scope="LiteralConstant" UId="47">
+                <Constant UId="48">
+                  <ConstantValue UId="50">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="51" />
+              <NewLine UId="52" />
+              <Blank Num="4" UId="53" />
+              <Access Scope="GlobalVariable" UId="54">
+                <Symbol UId="55">
+                  <Component Name="M_Safety_zone_3_4_Available" UId="56">
+                    <BooleanAttribute Name="HasQuotes" UId="57">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="58" />
+              <Token Text=":=" UId="59" />
+              <Blank UId="60" />
+              <Access Scope="LiteralConstant" UId="61">
+                <Constant UId="62">
+                  <ConstantValue UId="64">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="65" />
+              <NewLine UId="66" />
+              <Token Text="END_IF" UId="67" />
+              <Token Text=";" UId="68" />
+              <NewLine Num="2" UId="69" />
+              <Token Text="IF" UId="70" />
+              <Blank UId="71" />
+              <Access Scope="GlobalVariable" UId="72">
+                <Symbol UId="73">
+                  <Component Name="HWData" UId="74">
+                    <BooleanAttribute Name="HasQuotes" UId="75">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="76" />
+                  <Component Name="CombiNumber" UId="77" />
+                </Symbol>
+              </Access>
+              <Blank UId="78" />
+              <Token Text="&gt;" UId="79" />
+              <Blank UId="80" />
+              <Access Scope="LiteralConstant" UId="81">
+                <Constant UId="82">
+                  <ConstantValue UId="84">8</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="85" />
+              <Token Text="THEN" UId="86" />
+              <NewLine UId="87" />
+              <Blank Num="4" UId="88" />
+              <Access Scope="GlobalVariable" UId="89">
+                <Symbol UId="90">
+                  <Component Name="M_Power_line_5_6_Available" UId="91">
+                    <BooleanAttribute Name="HasQuotes" UId="92">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="93" />
+              <Token Text=":=" UId="94" />
+              <Blank UId="95" />
+              <Access Scope="LiteralConstant" UId="96">
+                <Constant UId="97">
+                  <ConstantValue UId="99">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="100" />
+              <NewLine UId="101" />
+              <Blank Num="4" UId="102" />
+              <Access Scope="GlobalVariable" UId="103">
+                <Symbol UId="104">
+                  <Component Name="M_Safety_zone_5_6_Available" UId="105">
+                    <BooleanAttribute Name="HasQuotes" UId="106">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="107" />
+              <Token Text=":=" UId="108" />
+              <Blank UId="109" />
+              <Access Scope="LiteralConstant" UId="110">
+                <Constant UId="111">
+                  <ConstantValue UId="113">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="114" />
+              <NewLine UId="115" />
+              <Token Text="END_IF" UId="116" />
+              <Token Text=";" UId="117" />
+              <NewLine Num="2" UId="118" />
+              <Token Text="IF" UId="119" />
+              <Blank UId="120" />
+              <Access Scope="GlobalVariable" UId="121">
+                <Symbol UId="122">
+                  <Component Name="HWData" UId="123">
+                    <BooleanAttribute Name="HasQuotes" UId="124">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="125" />
+                  <Component Name="CombiNumber" UId="126" />
+                </Symbol>
+              </Access>
+              <Blank UId="127" />
+              <Token Text="&gt;" UId="128" />
+              <Blank UId="129" />
+              <Access Scope="LiteralConstant" UId="130">
+                <Constant UId="131">
+                  <ConstantValue UId="133">12</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="134" />
+              <Token Text="THEN" UId="135" />
+              <NewLine UId="136" />
+              <Blank Num="4" UId="137" />
+              <Access Scope="GlobalVariable" UId="138">
+                <Symbol UId="139">
+                  <Component Name="M_Safety_zone_7_8_Available" UId="140">
+                    <BooleanAttribute Name="HasQuotes" UId="141">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="142" />
+              <Token Text=":=" UId="143" />
+              <Blank UId="144" />
+              <Access Scope="LiteralConstant" UId="145">
+                <Constant UId="146">
+                  <ConstantValue UId="148">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="149" />
+              <NewLine UId="150" />
+              <Token Text="END_IF" UId="151" />
+              <Token Text=";" UId="152" />
+              <NewLine Num="2" UId="153" />
+              <Token Text="IF" UId="154" />
+              <Blank UId="155" />
+              <Token Text="(" UId="156" />
+              <Access Scope="GlobalVariable" UId="157">
+                <Symbol UId="158">
+                  <Component Name="HWData" UId="159">
+                    <BooleanAttribute Name="HasQuotes" UId="160">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="161" />
+                  <Component Name="CombiNumber" UId="162" />
+                </Symbol>
+              </Access>
+              <Blank UId="163" />
+              <Token Text="=" UId="164" />
+              <Blank UId="165" />
+              <Access Scope="LiteralConstant" UId="166">
+                <Constant UId="167">
+                  <ConstantValue UId="169">2</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="170" />
+              <Token Text="OR" UId="171" />
+              <NewLine UId="172" />
+              <Blank Num="4" UId="173" />
+              <Access Scope="GlobalVariable" UId="174">
+                <Symbol UId="175">
+                  <Component Name="HWData" UId="176">
+                    <BooleanAttribute Name="HasQuotes" UId="177">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="178" />
+                  <Component Name="CombiNumber" UId="179" />
+                </Symbol>
+              </Access>
+              <Blank UId="180" />
+              <Token Text="=" UId="181" />
+              <Blank UId="182" />
+              <Access Scope="LiteralConstant" UId="183">
+                <Constant UId="184">
+                  <ConstantValue UId="186">6</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="187" />
+              <Token Text="OR" UId="188" />
+              <NewLine UId="189" />
+              <Blank Num="4" UId="190" />
+              <Access Scope="GlobalVariable" UId="191">
+                <Symbol UId="192">
+                  <Component Name="HWData" UId="193">
+                    <BooleanAttribute Name="HasQuotes" UId="194">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="195" />
+                  <Component Name="CombiNumber" UId="196" />
+                </Symbol>
+              </Access>
+              <Blank UId="197" />
+              <Token Text="=" UId="198" />
+              <Blank UId="199" />
+              <Access Scope="LiteralConstant" UId="200">
+                <Constant UId="201">
+                  <ConstantValue UId="203">10</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="204" />
+              <Token Text="OR" UId="205" />
+              <NewLine UId="206" />
+              <Blank Num="4" UId="207" />
+              <Access Scope="GlobalVariable" UId="208">
+                <Symbol UId="209">
+                  <Component Name="HWData" UId="210">
+                    <BooleanAttribute Name="HasQuotes" UId="211">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="212" />
+                  <Component Name="CombiNumber" UId="213" />
+                </Symbol>
+              </Access>
+              <Blank UId="214" />
+              <Token Text="=" UId="215" />
+              <Blank UId="216" />
+              <Access Scope="LiteralConstant" UId="217">
+                <Constant UId="218">
+                  <ConstantValue UId="220">14</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=")" UId="221" />
+              <Blank UId="222" />
+              <Token Text="THEN" UId="223" />
+              <NewLine UId="224" />
+              <Blank Num="4" UId="225" />
+              <Access Scope="GlobalVariable" UId="226">
+                <Symbol UId="227">
+                  <Component Name="M_Wrapping_machine_Enabled" UId="228">
+                    <BooleanAttribute Name="HasQuotes" UId="229">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="230" />
+              <Token Text=":=" UId="231" />
+              <Blank UId="232" />
+              <Access Scope="LiteralConstant" UId="233">
+                <Constant UId="234">
+                  <ConstantValue UId="236">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="237" />
+              <NewLine UId="238" />
+              <Token Text="END_IF" UId="239" />
+              <Token Text=";" UId="240" />
+              <NewLine Num="2" UId="241" />
+              <Token Text="IF" UId="242" />
+              <Blank UId="243" />
+              <Token Text="(" UId="244" />
+              <Access Scope="GlobalVariable" UId="245">
+                <Symbol UId="246">
+                  <Component Name="HWData" UId="247">
+                    <BooleanAttribute Name="HasQuotes" UId="248">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="249" />
+                  <Component Name="CombiNumber" UId="250" />
+                </Symbol>
+              </Access>
+              <Blank UId="251" />
+              <Token Text="=" UId="252" />
+              <Blank UId="253" />
+              <Access Scope="LiteralConstant" UId="254">
+                <Constant UId="255">
+                  <ConstantValue UId="257">3</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="258" />
+              <Token Text="OR" UId="259" />
+              <NewLine UId="260" />
+              <Blank Num="4" UId="261" />
+              <Access Scope="GlobalVariable" UId="262">
+                <Symbol UId="263">
+                  <Component Name="HWData" UId="264">
+                    <BooleanAttribute Name="HasQuotes" UId="265">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="266" />
+                  <Component Name="CombiNumber" UId="267" />
+                </Symbol>
+              </Access>
+              <Blank UId="268" />
+              <Token Text="=" UId="269" />
+              <Blank UId="270" />
+              <Access Scope="LiteralConstant" UId="271">
+                <Constant UId="272">
+                  <ConstantValue UId="274">7</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="275" />
+              <Token Text="OR" UId="276" />
+              <NewLine UId="277" />
+              <Blank Num="4" UId="278" />
+              <Access Scope="GlobalVariable" UId="279">
+                <Symbol UId="280">
+                  <Component Name="HWData" UId="281">
+                    <BooleanAttribute Name="HasQuotes" UId="282">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="283" />
+                  <Component Name="CombiNumber" UId="284" />
+                </Symbol>
+              </Access>
+              <Blank UId="285" />
+              <Token Text="=" UId="286" />
+              <Blank UId="287" />
+              <Access Scope="LiteralConstant" UId="288">
+                <Constant UId="289">
+                  <ConstantValue UId="291">11</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="292" />
+              <Token Text="OR" UId="293" />
+              <NewLine UId="294" />
+              <Blank Num="4" UId="295" />
+              <Access Scope="GlobalVariable" UId="296">
+                <Symbol UId="297">
+                  <Component Name="HWData" UId="298">
+                    <BooleanAttribute Name="HasQuotes" UId="299">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="300" />
+                  <Component Name="CombiNumber" UId="301" />
+                </Symbol>
+              </Access>
+              <Blank UId="302" />
+              <Token Text="=" UId="303" />
+              <Blank UId="304" />
+              <Access Scope="LiteralConstant" UId="305">
+                <Constant UId="306">
+                  <ConstantValue UId="308">15</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=")" UId="309" />
+              <Blank UId="310" />
+              <Token Text="THEN" UId="311" />
+              <NewLine UId="312" />
+              <Blank Num="4" UId="313" />
+              <Access Scope="GlobalVariable" UId="314">
+                <Symbol UId="315">
+                  <Component Name="M_Fast_doors_Enabled" UId="316">
+                    <BooleanAttribute Name="HasQuotes" UId="317">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="318" />
+              <Token Text=":=" UId="319" />
+              <Blank UId="320" />
+              <Access Scope="LiteralConstant" UId="321">
+                <Constant UId="322">
+                  <ConstantValue UId="324">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="325" />
+              <NewLine UId="326" />
+              <Token Text="END_IF" UId="327" />
+              <Token Text=";" UId="328" />
+              <NewLine Num="2" UId="329" />
+              <Token Text="IF" UId="330" />
+              <Blank UId="331" />
+              <Token Text="(" UId="332" />
+              <Access Scope="GlobalVariable" UId="333">
+                <Symbol UId="334">
+                  <Component Name="HWData" UId="335">
+                    <BooleanAttribute Name="HasQuotes" UId="336">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="337" />
+                  <Component Name="CombiNumber" UId="338" />
+                </Symbol>
+              </Access>
+              <Blank UId="339" />
+              <Token Text="=" UId="340" />
+              <Blank UId="341" />
+              <Access Scope="LiteralConstant" UId="342">
+                <Constant UId="343">
+                  <ConstantValue UId="345">4</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="346" />
+              <Token Text="OR" UId="347" />
+              <NewLine UId="348" />
+              <Blank Num="4" UId="349" />
+              <Access Scope="GlobalVariable" UId="350">
+                <Symbol UId="351">
+                  <Component Name="HWData" UId="352">
+                    <BooleanAttribute Name="HasQuotes" UId="353">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="354" />
+                  <Component Name="CombiNumber" UId="355" />
+                </Symbol>
+              </Access>
+              <Blank UId="356" />
+              <Token Text="=" UId="357" />
+              <Blank UId="358" />
+              <Access Scope="LiteralConstant" UId="359">
+                <Constant UId="360">
+                  <ConstantValue UId="362">8</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="363" />
+              <Token Text="OR" UId="364" />
+              <NewLine UId="365" />
+              <Blank Num="4" UId="366" />
+              <Access Scope="GlobalVariable" UId="367">
+                <Symbol UId="368">
+                  <Component Name="HWData" UId="369">
+                    <BooleanAttribute Name="HasQuotes" UId="370">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="371" />
+                  <Component Name="CombiNumber" UId="372" />
+                </Symbol>
+              </Access>
+              <Blank UId="373" />
+              <Token Text="=" UId="374" />
+              <Blank UId="375" />
+              <Access Scope="LiteralConstant" UId="376">
+                <Constant UId="377">
+                  <ConstantValue UId="379">12</ConstantValue>
+                </Constant>
+              </Access>
+              <Blank UId="380" />
+              <Token Text="OR" UId="381" />
+              <NewLine UId="382" />
+              <Blank Num="4" UId="383" />
+              <Access Scope="GlobalVariable" UId="384">
+                <Symbol UId="385">
+                  <Component Name="HWData" UId="386">
+                    <BooleanAttribute Name="HasQuotes" UId="387">true</BooleanAttribute>
+                  </Component>
+                  <Token Text="." UId="388" />
+                  <Component Name="CombiNumber" UId="389" />
+                </Symbol>
+              </Access>
+              <Blank UId="390" />
+              <Token Text="=" UId="391" />
+              <Blank UId="392" />
+              <Access Scope="LiteralConstant" UId="393">
+                <Constant UId="394">
+                  <ConstantValue UId="396">16</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=")" UId="397" />
+              <Blank UId="398" />
+              <Token Text="THEN" UId="399" />
+              <NewLine UId="400" />
+              <Blank Num="4" UId="401" />
+              <Access Scope="GlobalVariable" UId="402">
+                <Symbol UId="403">
+                  <Component Name="M_Wrapping_machine_Enabled" UId="404">
+                    <BooleanAttribute Name="HasQuotes" UId="405">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="406" />
+              <Token Text=":=" UId="407" />
+              <Blank UId="408" />
+              <Access Scope="LiteralConstant" UId="409">
+                <Constant UId="410">
+                  <ConstantValue UId="412">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="413" />
+              <NewLine UId="414" />
+              <Blank Num="4" UId="415" />
+              <Access Scope="GlobalVariable" UId="416">
+                <Symbol UId="417">
+                  <Component Name="M_Fast_doors_Enabled" UId="418">
+                    <BooleanAttribute Name="HasQuotes" UId="419">true</BooleanAttribute>
+                  </Component>
+                </Symbol>
+              </Access>
+              <Blank UId="420" />
+              <Token Text=":=" UId="421" />
+              <Blank UId="422" />
+              <Access Scope="LiteralConstant" UId="423">
+                <Constant UId="424">
+                  <ConstantValue UId="426">TRUE</ConstantValue>
+                </Constant>
+              </Access>
+              <Token Text=";" UId="427" />
+              <NewLine UId="428" />
+              <Token Text="END_IF" UId="429" />
+              <Token Text=";" UId="430" />
+              <NewLine UId="431" />
+            </StructuredText>
+          </NetworkSource>
+          <ProgrammingLanguage>SCL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>For all hardware combinations:
+  - Power lines L1/L2 are always available.
+  - Safety zones Z1/Z2 are always available.</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="10" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Configuration of the +C0 cabinet functionalities according to the configured hardware.</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="12" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="13" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>"Complete Restart"</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.OB>
+</Document>
